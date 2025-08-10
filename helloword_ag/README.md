@@ -27,4 +27,9 @@ Contains all references files related to the solution
 - I added the correct solution I wrote `hello_world.cpp` here.
 
 ## diff.sh
-Contains the bash file needed to run the executable (with any necessary execution files)
+Contains the bash file needed to run the executable (with any necessary execution files), as well as points awarded for the test case and the name of the test case
+- Notice the example of bash code below from diff.sh. Remember, that I named the executable `main` in the Makefile. I want to read in my test file(s) located in the EXECUTION-FILES folder, make each test case 10 points, and have the test case show up as "Test case 1" for the student.
+```bash
+#@test{"stdout":10, "name":"Test case 1"}
+./main < test1.txt
+```

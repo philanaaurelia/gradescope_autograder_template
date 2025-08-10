@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cd /autograder/source
+
+# Set up autograder files
+cp /autograder/submission/hello_world.cpp .
+
+# Run the autograder code
+bash ./MAKE-REFERENCE.sh
+bash ./grade.sh

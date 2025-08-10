@@ -36,9 +36,17 @@ Contains the bash file needed to run the executable (with any necessary executio
 
 ## grade.sh
 Contains the instructions for what the grader should grade, how to build code in order to run it, and what type flavor of grading should occur. It also spits out a nice little error if the student did not properly name the file.
-- In my case, I wanted the grader to grade the file hello_world.cpp submitted by the user, run the Makefile I generated, and use diff-based grading so I update the top 3 lines to the following:
+- In my case, I wanted the grader to grade the file `hello_world.cpp` submitted by the student, run the Makefile I generated, and use diff-based grading, so I updated the following 3 lines to meet my needs:
 ```bash
 EXPECTED_FILES="hello_world.cpp"
 MAKE_TARGET="all"
 DIFF_TOOLS=gs-diff-based-testing
 ```
+## run_autograder
+The bash executable beings the autograder by, compiling, running, and grading the code by first copying over the student submission file. 
+- In my case, I wanted the autograder to copy over the file I told the student to submit, so I made sure the file was named `hello_world.cpp` by updating the following line in the file:
+```bash
+# Set up autograder files
+cp /autograder/submission/hello_world.cpp .
+```
+

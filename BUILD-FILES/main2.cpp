@@ -5,6 +5,6 @@
 int main() {
   Divider<int>* division = new Divider<int>();
 
-  std::cout << division->GetQuotient(18, 2) << std::endl;
+  std::cout << division->GetQuotient(-20, 3) << std::endl;
 
 }

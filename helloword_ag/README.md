@@ -24,29 +24,35 @@ Contains all files needed to run the student code and solution code needed to pe
 
 ## REFERENCE-FILES
 Contains all references files related to the solution
-- I added the correct solution I wrote `hello_world.cpp` here.
+- I added the correct solution I wrote here (`hello_world.cpp`). Make sure this file is the same name as the student submitted file.
 
 ## diff.sh
-Contains the bash file needed to run the executable (with any necessary execution files), as well as points awarded for the test case and the name of the test case
-- Notice the example of bash code below from diff.sh. Remember, that I named the executable `main` in the Makefile. I want to read in my test file(s) located in the EXECUTION-FILES folder, make each test case 10 points, and have the test case show up as "Test case 1" for the student.
+Contains the bash code needed to run the executable (with any necessary execution files), as well as points awarded for the test case and the name of the test case
+- Notice the example of bash code below from **diff.sh**. Remember, that I named the executable `main` in the Makefile. I want to read in my test file(s) located in the EXECUTION-FILES folder, make each test case 10 points, and have the test case name show up as "Test case 1" to the student.
 ```bash
 #@test{"stdout":10, "name":"Test case 1"}
 ./main < test1.txt
 ```
 
 ## grade.sh
-Contains the instructions for what the grader should grade, how to build code in order to run it, and what type flavor of grading should occur. It also spits out a nice little error if the student did not properly name the file.
+Contains the instructions for what the grader should grade, how to build code in order to run it, and what type of grading should occur. It also spits out a nice little error if the student did not properly name the file.
 - In my case, I wanted the grader to grade the file `hello_world.cpp` submitted by the student, run the Makefile I generated, and use diff-based grading, so I updated the following 3 lines to meet my needs:
 ```bash
 EXPECTED_FILES="hello_world.cpp"
 MAKE_TARGET="all"
 DIFF_TOOLS=gs-diff-based-testing
 ```
+
 ## run_autograder
-The bash executable beings the autograder by, compiling, running, and grading the code by first copying over the student submission file. 
+The bash executable that begins the autograder by compiling, running, and grading the code. First it must copy over the student submission file. 
 - In my case, I wanted the autograder to copy over the file I told the student to submit, so I made sure the file was named `hello_world.cpp` by updating the following line in the file:
 ```bash
 # Set up autograder files
 cp /autograder/submission/hello_world.cpp .
 ```
 
+# Un-modified files/folders 
+* setup.sh
+* LICENSE
+* MAKE-REFERENCE.sh (Note: this would have been modified if I didn't want to do diff based grading)
+* apt-get.sh (Note: this would have been modified if I wanted to change C++ compliler flavors/versions)
